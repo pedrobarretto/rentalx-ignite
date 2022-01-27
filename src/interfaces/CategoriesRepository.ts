@@ -1,4 +1,4 @@
-import { Category } from '../model/Category';
+import { Category } from '../modules/cars/model/Category';
 
 export interface CreateCategoryDto {
   name: string;

@@ -1,7 +1,7 @@
 import {
   CategoriesRepository,
   CreateCategoryDto,
-} from '../interfaces/CategoriesRepository';
+} from '../../../interfaces/CategoriesRepository';
 import { Category } from '../model/Category';
 
 export class CategoryRepository implements CategoriesRepository {
