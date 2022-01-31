@@ -7,8 +7,18 @@ import { Category } from '../model/Category';
 export class CategoryRepository implements CategoriesRepository {
   private categories: Category[];
 
-  constructor() {
+  private static INSTANCE: CategoriesRepository;
+
+  private constructor() {
     this.categories = [];
+  }
+
+  public static getInstance(): CategoriesRepository {
+    if (!CategoryRepository.INSTANCE) {
+      CategoryRepository.INSTANCE = new CategoryRepository();
+    }
+
+    return CategoryRepository.INSTANCE;
   }
 
   create({ name, description }: CreateCategoryDto): void {

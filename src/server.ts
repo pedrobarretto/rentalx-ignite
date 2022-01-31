@@ -1,13 +1,16 @@
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
 
-import { categoriesRoutes } from './routes/categories.routes';
-import { specificationRoutes } from './routes/specification.routes';
+import { router } from './routes';
+import swaggerFile from './swagger.json';
 
 const app = express();
 
 app.use(express.json());
-app.use('/categories', categoriesRoutes);
-app.use('/specifications', specificationRoutes);
+
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
+app.use(router);
 
 const port = 8080;
 
